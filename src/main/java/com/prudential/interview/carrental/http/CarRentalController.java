@@ -36,16 +36,16 @@ public class CarRentalController {
             if (result == 0) {
                 throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "car is not enough");
             }
-        }finally {
+        } finally {
             queue.poll();
         }
 
 
     }
 
-    @PostMapping("return")
-    public void releaseCar(@RequestBody CarRental carRental) throws Exception {
-        this.carRentalHandler.returnCar(carRental.getId());
+    @PostMapping("rent/records/{id}")
+    public void releaseCar(@PathVariable("id") String id) throws Exception {
+        this.carRentalHandler.returnCar(id);
     }
 
 
@@ -58,7 +58,7 @@ public class CarRentalController {
     public List<CarRental> getCarRentalRecord() {
         try {
             return carRentalHandler.getRentalRepository().findAll();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

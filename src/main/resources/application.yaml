@@ -21,4 +21,6 @@ spring:
         true
       path:
         /h2
+      settings:
+        web-allow-others: true
   # Custom H2 Console URL

@@ -24,6 +24,7 @@ public class CarRentalHandler implements CarRentalInterface {
             if (originStock.getStock() == 0) {
                return 0;
             }
+            // optimistic lock
             int result = carStockRepository.updateCarModelStock(originStock.getStock() - 1,
                     originStock.getCarModel(),
                     originStock.getStock());
