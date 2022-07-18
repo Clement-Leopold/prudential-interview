@@ -5,20 +5,20 @@
     2. h2 database(optimisic lock)
     
 ## Rest API
-    1. POST /cars/rent          // rent car
+    1. POST /cars/rent          // rent a car
         request_body: 
         {
           "username": "",  
           "reserveSeconds": "", // INT: car reserved time in seconds 
           "model": "" //  INT: car model.
         } 
-    2. POST /cars/rent/records/{id}     // return car
+    2. POST /cars/rent/records/{id}     // return car: since the car cannot be returned automatically, this API is neccessary.
         path_variable:
             id: rent id, specific id for one reservation.
     
-    3. GET /cars      // get all car resources
+    3. GET /cars               // get all car resources
     4. GET /cars/rent/records  // get all rent events
-    5. (Optional) POST /cars/rent/records/{id} // since the car cannot be returned automatically, this API is neccessary.
+    
     
 ## Diagram
 ![image info](./diagram.png)
